@@ -1,15 +1,30 @@
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Sara Paguaga
+ *
+ *Esta clase implementa a la interfaz Icalculadora, tiene los métodos que descifran y hacen operaciones en el
+ *stack
+ *
+ */
 public class CALCUpostfix implements Icalculadora {
     private CalcuList<Integer> ints;
     private CalcuList<Character> chars;
 
+    /**
+     * Tiene inicializadas las variables de las arraylists
+     */
     public CALCUpostfix() {
         ints = new CalcuList<Integer>();
         chars = new CalcuList<Character>();
     }
 
-
+    /**
+     * Identifica la procedencia o que es el char si un + o -
+     * @param charrr es el caracter
+     * @return devuelve 1 o 2 dependiendo de si es un + o -
+     */
     public int getProcedencia(char charrr){
         if (charrr == '+' || charrr == '-'){
             return 1;
@@ -18,6 +33,11 @@ public class CALCUpostfix implements Icalculadora {
         }
     }
 
+    /**
+     * Va separando la expresión en caracteres y con las condiciones va identificando, también si está vacio
+     * @param s es la expresion que se quiere descifrar
+     * @return la expresión postfix
+     */
     public String decifrador(String s){
         String postfixExp = "";
         char miniChars[] = s.toCharArray();
@@ -66,7 +86,9 @@ public class CALCUpostfix implements Icalculadora {
 
 
 
-    //Evaluar una operaciÃ³n aritmÃ©tica
+    /**
+     * Evalua la expresión aritmética
+     */
     @Override
     public double resolver (String input){
 
